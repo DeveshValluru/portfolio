@@ -5,7 +5,7 @@ import { profile } from "@/lib/profile";
 export const metadata: Metadata = {
   title: `${profile.name} - ${profile.tagline}`,
   description: profile.intro,
-  metadataBase: new URL("https://devesh-portfolio.vercel.app"),
+  metadataBase: new URL("https://devesh-valluru.vercel.app"),
   openGraph: {
     title: `${profile.name} - ${profile.tagline}`,
     description: profile.intro,
