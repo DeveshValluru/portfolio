@@ -1,0 +1,12 @@
+node_modules
+.next
+.next-*
+out
+.env
+.env.local
+.env*.local
+.vercel
+.DS_Store
+*.tsbuildinfo
+next-env.d.ts
+.claude/launch.json
