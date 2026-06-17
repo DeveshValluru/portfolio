@@ -11,12 +11,21 @@ export const metadata: Metadata = {
     description: profile.intro,
     type: "website",
     url: "/",
-    siteName: profile.name
+    siteName: profile.name,
+    images: [
+      {
+        url: "/devesh.jpg",
+        width: 1200,
+        height: 900,
+        alt: `${profile.name} — portrait`
+      }
+    ]
   },
   twitter: {
     card: "summary_large_image",
     title: profile.name,
-    description: profile.tagline
+    description: profile.tagline,
+    images: ["/devesh.jpg"]
   },
   icons: {
     icon: "/favicon.svg"

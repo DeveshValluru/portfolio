@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight, Github, Linkedin, MapPin, Sparkles, Cpu } from "lucide-react";
 import { profile } from "@/lib/profile";
@@ -33,6 +34,8 @@ export default function Hero() {
       />
 
       <div className="section-pad relative z-10 flex min-h-[92vh] flex-col justify-center pt-32">
+        <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_auto] lg:gap-16">
+          <div className="order-2 min-w-0 lg:order-1">
         <motion.div
           custom={0}
           initial="hidden"
@@ -131,6 +134,40 @@ export default function Hero() {
             {profile.email}
           </a>
         </motion.div>
+          </div>
+
+          {/* Avatar */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.85, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+            className="order-1 justify-self-center lg:order-2 lg:justify-self-end"
+          >
+            <div className="relative">
+              {/* Glow halo */}
+              <div
+                aria-hidden
+                className="absolute -inset-6 rounded-full bg-gradient-to-br from-indigo-500/40 via-violet-500/40 to-fuchsia-500/30 opacity-70 blur-3xl"
+              />
+              {/* Soft inner ring */}
+              <div
+                aria-hidden
+                className="absolute inset-0 rounded-full bg-gradient-to-br from-indigo-400/30 to-violet-400/30 blur-md"
+              />
+              {/* Photo */}
+              <div className="relative h-56 w-56 overflow-hidden rounded-full border-2 border-white/15 shadow-[0_20px_60px_-10px_rgba(99,102,241,0.45)] ring-1 ring-white/10 md:h-72 md:w-72">
+                <Image
+                  src="/devesh.jpg"
+                  alt={`${profile.name} — portrait`}
+                  fill
+                  sizes="(max-width: 768px) 224px, 288px"
+                  priority
+                  className="object-cover"
+                />
+              </div>
+            </div>
+          </motion.div>
+        </div>
 
         {/* Stats strip */}
         <motion.div
