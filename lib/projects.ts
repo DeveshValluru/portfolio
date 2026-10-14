@@ -78,6 +78,24 @@ export const featuredProjects: Project[] = [
     ]
   },
   {
+    slug: "arxiv-research-agent",
+    title: "arXiv Research Agent · Verified Literature Review",
+    period: "2026",
+    tagline:
+      "Ask a paper a question or run a full literature review — every sentence cites the passage it came from and is checked against it by a judge from a different model family before you see it.",
+    highlights: [
+      "Shipped a LangGraph pipeline (plan → search arXiv → screen → snowball references → optional human pause → read → write → critic) with hybrid retrieval (dense + BM25 + cross-encoder) lifting evidence recall@5 from 0.68 → 0.91 and Q&A correctness from 0.76 → 0.83.",
+      "Built a cross-family claim-checker that caught 94% of planted hallucinations (negations, number swaps, wrong-source citations) with zero false alarms — a repair-vs-remove loop then rewrites unsupported sentences, taking correctness from 0.31 → 0.93.",
+      "Web UI + API with live SSE progress streams, background jobs, a citation graph, and a prompt-injection guard red-teamed on 105 attacks; evaluated against 5 real survey papers (1.8× precision over the raw candidate pool)."
+    ],
+    stack: ["Python", "LangGraph", "FastAPI", "BM25", "Cross-encoder", "SSE"],
+    accent: "violet",
+    category: "agentic",
+    links: [
+      { label: "GitHub", href: "https://github.com/DeveshValluru/arxiv-research-agent" }
+    ]
+  },
+  {
     slug: "multi-agent-ideation",
     title: "Multi-Agent Scientific Ideation Pipeline",
     period: "2026",
@@ -133,6 +151,42 @@ export const featuredProjects: Project[] = [
   },
 
   // ─────────── GPU / Systems Performance ───────────
+  {
+    slug: "vllm-h100-optimization",
+    title: "vLLM Optimization Study · Qwen 14B on H100",
+    period: "2026",
+    tagline:
+      "Progressive vLLM tuning on production-grade hardware — only kept optimizations that measurably won, ending at +19% throughput and -42% latency vs the baseline for ~$5 of H100 time.",
+    highlights: [
+      "Ran one-change-at-a-time optimization levels under real Poisson traffic (500 ShareGPT conversations, 6 RPS × 4 prompt-length buckets); kept CUDA graphs (+4%) and INT4 AWQ (+19%), dropped prefix caching (-20%), max_num_batched_tokens, and n-gram speculative decoding (-16%).",
+      "Showed INT4 AWQ shifts the latency cliff to the right on H100 — more headroom before latency explodes under load — and that prefill cost dominates at long prompts (6× throughput drop from 500 → 8000 tokens).",
+      "Methodology-first: a 'what didn't work' table that's as valuable as the wins, with latency-throughput Pareto frontiers and per-RPS saturation charts generated from the run data."
+    ],
+    stack: ["Python", "vLLM", "H100", "Modal", "Qwen 2.5-14B", "AWQ INT4"],
+    accent: "fuchsia",
+    category: "gpu",
+    links: [
+      { label: "GitHub", href: "https://github.com/DeveshValluru/vllm-h100-optimization" }
+    ]
+  },
+  {
+    slug: "vllm-optimization-progression",
+    title: "vLLM Throughput Progression · 30× on an RTX 4060 Laptop",
+    period: "2026",
+    tagline:
+      "8-level benchmark from naive HuggingFace generate() to a fully-tuned vLLM server on 8 GB VRAM — 39 → 1188 tok/s (30×), with the optimizations that regressed charted alongside the wins.",
+    highlights: [
+      "Measured each lever in isolation on Qwen 2.5-1.5B: continuous batching gave +1270% (the single biggest jump), INT4 AWQ added another +62%, while CUDA graphs regressed by 10% on a model this small — surfacing which optimizations actually depend on model scale.",
+      "Captured end-to-end throughput, latency (p50/p95/p99), and TTFT at every level over 100 fixed prompts with a shared 500-token system prefix, so prefix caching had something real to cache.",
+      "Companion study to the H100 run — same methodology, consumer hardware — the pair shows how vLLM optimization choices move as you scale from 1.5B/laptop to 14B/datacenter."
+    ],
+    stack: ["Python", "vLLM 0.24", "Qwen 2.5-1.5B", "AWQ", "WSL2", "RTX 4060"],
+    accent: "fuchsia",
+    category: "gpu",
+    links: [
+      { label: "GitHub", href: "https://github.com/DeveshValluru/vllm-optimization-progression" }
+    ]
+  },
   {
     slug: "cuda-flashattention",
     title: "CUDA FlashAttention-1 Forward Kernel",
