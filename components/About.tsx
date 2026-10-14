@@ -29,17 +29,22 @@ export default function About() {
               and deployment. I like the messy middle: real data, real users, real GPU budgets.
             </p>
             <p className="mt-4 text-base leading-relaxed text-ink-200 md:text-lg">
-              My moat is building <span className="text-violet-300">LLM systems that know when they&apos;re wrong</span>.
-              In my latest project — the <span className="text-violet-300">arXiv Research Agent</span> (October 2026) —
-              every generated sentence cites a specific passage and is adversarially verified by a judge from a{" "}
-              <span className="text-cyan-300">different model family</span> before you see it. On deliberately-planted
-              hallucinations (number swaps, negations, wrong-source citations) the system catches{" "}
-              <span className="text-cyan-300">94% with zero false alarms</span>, and a repair-vs-remove loop lifts
-              answer correctness from <span className="text-fuchsia-300">0.31 → 0.93</span>. That same instinct —
-              don&apos;t just generate, measure — runs through the rest of my work: a human-in-the-loop retail agent
-              on MCP + Gemini 3 Pro, a multi-agent scientific-ideation pipeline that beat a 70B baseline on SCIMON
-              and IdeaBench, and a multi-table LLM benchmark that caught a <span className="text-fuchsia-300">~35%
-              accuracy drop</span> on real relational data.
+              My focus is building <span className="text-violet-300">production-grade LLM systems</span> with{" "}
+              <span className="text-cyan-300">observability, guardrails, human-in-the-loop oversight, and
+              LLM-as-judge verification</span>. In my latest project — the{" "}
+              <span className="text-violet-300">arXiv Research Agent</span> (October 2026) — I shipped a{" "}
+              <span className="text-cyan-300">cross-family LLM-as-judge</span> that grounds every generated claim
+              against its cited evidence via hybrid retrieval (dense + BM25 + cross-encoder reranker):{" "}
+              <span className="text-fuchsia-300">94% hallucination detection</span> on planted errors with{" "}
+              <span className="text-fuchsia-300">zero false alarms</span>, and a grounded repair-or-remove loop that
+              lifts answer correctness from <span className="text-fuchsia-300">0.31 → 0.93</span>. A regex + classifier
+              guard hardened it against <span className="text-cyan-300">105 red-teamed prompt-injection attacks</span>.
+              The same discipline — grounding, evals, failure-mode analysis — runs through the rest of my work: a{" "}
+              <span className="text-cyan-300">HITL store-operations agent</span> on MCP + Gemini 3 Pro converting{" "}
+              <span className="text-cyan-300">Dynatrace observability</span> into revenue-loss signals before any
+              auto-remediation; a multi-agent scientific-ideation pipeline that beat the Llama-3.3-70B baseline on
+              SCIMON and IdeaBench; and a multi-hop relational-table benchmark quantifying a{" "}
+              <span className="text-fuchsia-300">~35% accuracy drop</span> on real-world schemas.
             </p>
             <p className="mt-4 text-base leading-relaxed text-ink-300">
               I&apos;m using the rest of my MS to <span className="text-cyan-300">level up on the GPU side of model
@@ -56,19 +61,19 @@ export default function About() {
               </span>
               <span className="chip">
                 <Sparkles className="h-3 w-3 text-violet-300" />
-                Verified LLM systems
+                LLM-as-judge
               </span>
               <span className="chip">
                 <Sparkles className="h-3 w-3 text-cyan-300" />
-                Agentic AI
+                Guardrails &amp; grounding
               </span>
               <span className="chip">
                 <Sparkles className="h-3 w-3 text-fuchsia-300" />
-                Multi-agent systems
+                HITL agents
               </span>
               <span className="chip">
                 <Sparkles className="h-3 w-3 text-emerald-300" />
-                Evaluation frameworks
+                Observability-driven AI
               </span>
             </div>
           </motion.div>
