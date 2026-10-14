@@ -8,7 +8,7 @@ export type SkillGroup = {
 export const skillGroups: SkillGroup[] = [
   {
     name: "Languages",
-    items: ["Python", "C++", "C", "Java", "Bash", "SQL"]
+    items: ["Python", "C++", "C", "Java", "Go", "Bash", "SQL"]
   },
   {
     name: "ML / DL & GenAI",
