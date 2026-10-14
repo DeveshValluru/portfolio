@@ -52,6 +52,24 @@ export const projectCategories: ProjectCategory[] = [
 export const featuredProjects: Project[] = [
   // ─────────── Agentic AI & LLM Systems ───────────
   {
+    slug: "arxiv-research-agent",
+    title: "arXiv Research Agent · Verified Literature Review",
+    period: "2026",
+    tagline:
+      "Ask a paper a question or run a full literature review — every sentence cites the passage it came from and is checked against it by a judge from a different model family before you see it.",
+    highlights: [
+      "Shipped a LangGraph pipeline (plan → search arXiv → screen → snowball references → optional human pause → read → write → critic) with hybrid retrieval (dense + BM25 + cross-encoder) lifting evidence recall@5 from 0.68 → 0.91 and Q&A correctness from 0.76 → 0.83.",
+      "Built a cross-family claim-checker that caught 94% of planted hallucinations (negations, number swaps, wrong-source citations) with zero false alarms — a repair-vs-remove loop then rewrites unsupported sentences, taking correctness from 0.31 → 0.93.",
+      "Web UI + API with live SSE progress streams, background jobs, a citation graph, and a prompt-injection guard red-teamed on 105 attacks; evaluated against 5 real survey papers (1.8× precision over the raw candidate pool)."
+    ],
+    stack: ["Python", "LangGraph", "FastAPI", "BM25", "Cross-encoder", "SSE"],
+    accent: "violet",
+    category: "agentic",
+    links: [
+      { label: "GitHub", href: "https://github.com/DeveshValluru/arxiv-research-agent" }
+    ]
+  },
+  {
     slug: "lossless",
     title: "Lossless · AI Store Operations Agent",
     period: "2026",
@@ -75,24 +93,6 @@ export const featuredProjects: Project[] = [
     category: "agentic",
     links: [
       { label: "GitHub", href: "https://github.com/DeveshValluru/lossless" }
-    ]
-  },
-  {
-    slug: "arxiv-research-agent",
-    title: "arXiv Research Agent · Verified Literature Review",
-    period: "2026",
-    tagline:
-      "Ask a paper a question or run a full literature review — every sentence cites the passage it came from and is checked against it by a judge from a different model family before you see it.",
-    highlights: [
-      "Shipped a LangGraph pipeline (plan → search arXiv → screen → snowball references → optional human pause → read → write → critic) with hybrid retrieval (dense + BM25 + cross-encoder) lifting evidence recall@5 from 0.68 → 0.91 and Q&A correctness from 0.76 → 0.83.",
-      "Built a cross-family claim-checker that caught 94% of planted hallucinations (negations, number swaps, wrong-source citations) with zero false alarms — a repair-vs-remove loop then rewrites unsupported sentences, taking correctness from 0.31 → 0.93.",
-      "Web UI + API with live SSE progress streams, background jobs, a citation graph, and a prompt-injection guard red-teamed on 105 attacks; evaluated against 5 real survey papers (1.8× precision over the raw candidate pool)."
-    ],
-    stack: ["Python", "LangGraph", "FastAPI", "BM25", "Cross-encoder", "SSE"],
-    accent: "violet",
-    category: "agentic",
-    links: [
-      { label: "GitHub", href: "https://github.com/DeveshValluru/arxiv-research-agent" }
     ]
   },
   {
