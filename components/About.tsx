@@ -28,18 +28,25 @@ export default function About() {
               ML lifecycle — data pipelines, model training, LLM-powered applications, evaluation frameworks,
               and deployment. I like the messy middle: real data, real users, real GPU budgets.
             </p>
-            <p className="mt-4 text-base leading-relaxed text-ink-300">
-              Recent work spans an <span className="text-cyan-300">agentic system on top of MCP + Gemini 3 Pro</span>
-              {" "}for retail observability, <span className="text-indigo-300">LoRA fine-tuning of Stable Diffusion</span>
-              {" "}inside 8 GB of VRAM, a <span className="text-violet-300">multi-agent scientific-ideation pipeline</span>
-              {" "}deployed on ASU&apos;s HPC via vLLM and SLURM, and{" "}
-              <span className="text-fuchsia-300">benchmarking LLM reasoning over real relational data</span>.
+            <p className="mt-4 text-base leading-relaxed text-ink-200 md:text-lg">
+              My moat is building <span className="text-violet-300">LLM systems that know when they&apos;re wrong</span>.
+              In my latest project — the <span className="text-violet-300">arXiv Research Agent</span> (October 2026) —
+              every generated sentence cites a specific passage and is adversarially verified by a judge from a{" "}
+              <span className="text-cyan-300">different model family</span> before you see it. On deliberately-planted
+              hallucinations (number swaps, negations, wrong-source citations) the system catches{" "}
+              <span className="text-cyan-300">94% with zero false alarms</span>, and a repair-vs-remove loop lifts
+              answer correctness from <span className="text-fuchsia-300">0.31 → 0.93</span>. That same instinct —
+              don&apos;t just generate, measure — runs through the rest of my work: a human-in-the-loop retail agent
+              on MCP + Gemini 3 Pro, a multi-agent scientific-ideation pipeline that beat a 70B baseline on SCIMON
+              and IdeaBench, and a multi-table LLM benchmark that caught a <span className="text-fuchsia-300">~35%
+              accuracy drop</span> on real relational data.
             </p>
             <p className="mt-4 text-base leading-relaxed text-ink-300">
               I&apos;m using the rest of my MS to <span className="text-cyan-300">level up on the GPU side of model
-              serving</span> — vLLM internals, batching and throughput tradeoffs, and the basics of CUDA / GPU
-              kernel programming. I&apos;m honest about being early on that journey; the goal is to be a stronger
-              ML engineer at the inference layer, not to claim it&apos;s already a specialty.
+              serving</span> — vLLM internals (recent H100 and RTX 4060 progression studies), batching and throughput
+              tradeoffs, and the basics of CUDA / GPU kernel programming. I&apos;m honest about being early on that
+              journey; the goal is to be a stronger ML engineer at the inference layer, not to claim it&apos;s already
+              a specialty.
             </p>
 
             <div className="mt-6 flex flex-wrap gap-2">
@@ -49,15 +56,15 @@ export default function About() {
               </span>
               <span className="chip">
                 <Sparkles className="h-3 w-3 text-violet-300" />
-                LLM applications
+                Verified LLM systems
+              </span>
+              <span className="chip">
+                <Sparkles className="h-3 w-3 text-cyan-300" />
+                Agentic AI
               </span>
               <span className="chip">
                 <Sparkles className="h-3 w-3 text-fuchsia-300" />
                 Multi-agent systems
-              </span>
-              <span className="chip">
-                <Sparkles className="h-3 w-3 text-indigo-300" />
-                Diffusion fine-tuning
               </span>
               <span className="chip">
                 <Sparkles className="h-3 w-3 text-emerald-300" />
